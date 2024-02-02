@@ -62,6 +62,9 @@ require("packer").startup(function(use)
 	use 'hrsh7th/nvim-cmp'  -- autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
 	use 'hrsh7th/vim-vsnip'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
 	use 'jose-elias-alvarez/null-ls.nvim'
 	use { 'folke/trouble.nvim', requires = { 'nvim-tree/nvim-web-devicons' } }
 

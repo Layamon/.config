@@ -17,6 +17,7 @@ PluginList = {
 	'plugins/interestingwords',
 	'plugins/zen',
 	'plugins/trouble',
+	'plugins/nvim-cmp',
 }
 
 for _, plugin_name in ipairs(PluginList) do

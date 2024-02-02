@@ -13,11 +13,6 @@ local keymap = function(lhs, rhs)
 	return vim.api.nvim_set_keymap('n', lhs, rhs, opts)
 end
 
-keymap('<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>')
-keymap('[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
-keymap(']d', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-keymap('<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>')
-
 local function lsp_keymaps(bufnr)
 	local buf_keymap = function(lhs, rhs)
 		return vim.api.nvim_buf_set_keymap(bufnr, 'n', lhs, rhs, opts)
@@ -26,10 +21,6 @@ local function lsp_keymaps(bufnr)
 	-- See `:help vim.lsp.*` for documentation on any of the below functions
 	buf_keymap('gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 	buf_keymap('gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-	buf_keymap('K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-	buf_keymap('gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-	buf_keymap('<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>')
-	--buf_keymap('gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 end
 
 -- use an on_attach function to only map the following keys
@@ -39,11 +30,13 @@ local on_attach = function(_, bufnr)
 end
 
 local lspconfig = require('lspconfig')
+
 -- add additional capabilities supported by nvim-cmp
 local cap = vim.lsp.protocol.make_client_capabilities()
 cap = require('cmp_nvim_lsp').default_capabilities(cap)
 cap.textDocument.semanticHighlighting = true
 cap.offsetEncoding = "utf-8"
+
 lspconfig.clangd.setup {
 	on_attach = on_attach,
 	capabilities = cap,
@@ -83,22 +76,12 @@ lspconfig.lua_ls.setup {
 	},
 }
 
-vim.keymap.set('x', '<leader>f', "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
-vim.keymap.set('n', 'fm', "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
-vim.keymap.set('n', '11', "<cmd>ClangdSwitchSourceHeader<CR>", opts)
-vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-
-
 vim.diagnostic.config({
 	virtual_text = false,
 	float = {
 		scope = "cursor"
 	}
 })
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[e', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']e', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Function to check if a floating dialog exists and if not
 -- then check for diagnostics under the cursor
@@ -129,3 +112,23 @@ vim.api.nvim_create_autocmd({ "CursorHold" }, {
 	command = "lua OpenDiagnosticIfNoFloat()",
 	group = "lsp_diagnostics_hold",
 })
+
+local function quickfix()
+	vim.lsp.buf.code_action({
+		filter = function(a) return a.isPreferred end,
+		apply = true
+	})
+end
+
+vim.keymap.set('n', '<leader>qf', quickfix, opts)
+
+vim.keymap.set('x', '<leader>f', "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
+vim.keymap.set('n', 'fm', "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
+vim.keymap.set('n', '11', "<cmd>ClangdSwitchSourceHeader<CR>", opts)
+vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+
+
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[e', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']e', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
