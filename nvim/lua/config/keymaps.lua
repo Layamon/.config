@@ -1,0 +1,22 @@
+-- Keymaps are automatically loaded on the VeryLazy event
+-- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- Add any additional keymaps here
+
+local opts = { noremap = true, silent = true }
+vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
+vim.keymap.set("x", "<leader>f", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
+vim.keymap.set("n", "<leader> ", "<cmd>wa<CR>", opts)
+vim.keymap.set("n", "ff", "<cmd>Neotree show<CR>", opts)
+vim.keymap.set("n", "fm", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
+vim.keymap.set("n", "<leader>n", function()
+  vim.wo.number = not vim.wo.number
+end, { desc = "show line number" })
+
+vim.keymap.set('n', 'gr', ":Telescope lsp_references<cr>", opts)
+vim.keymap.set('n', 'gu', ":Telescope lsp_incoming_calls<cr>", opts)
+vim.keymap.set('n', '<leader>s', ":Telescope lsp_workspace_symbols<cr>", opts)
+vim.keymap.set('n', '<leader>g', ":Telescope live_grep<cr>", opts)
+vim.keymap.set('n', '<leader>t', ":Telescope lsp_document_symbols<cr>", opts)
+vim.keymap.set('n', '<leader>b', ":Telescope buffers<cr>", opts)
+vim.keymap.set('n', '<leader>f',
+	":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=> <cr>", opts)

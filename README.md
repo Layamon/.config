@@ -4,3 +4,6 @@ the google, not get any answers; it maybe not coc's problem, someone can tell me
 
 thanks to repo(https://github.com/findNextStep/mydot), when I use coc, it configuration matchs my workflows. here when 
 I want to try the native lsp support of nvim, I try to write configuration by myself, to check whether it is better than coc.
+
+
+https://github.com/hrsh7th/nvim-cmp/issues/1684
