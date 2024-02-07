@@ -11,7 +11,7 @@ return {
 						--      types = "bold",
 					},
 				},
-				vim.cmd([[ colorscheme dawnfox ]]),
+				vim.cmd([[ colorscheme dayfox ]]),
 			})
 		end,
 	},
