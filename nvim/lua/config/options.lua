@@ -20,5 +20,7 @@ vim.o.scrolloff = 3
 vim.o.clipboard = "unnamedplus"
 vim.o.mouse = "a"
 vim.o.updatetime = 100 -- change when do we have CursorHold event
+vim.o.cursorline = 0
 
 vim.diagnostic.config({ virtual_text = false })
+vim.o.list = 0

@@ -25,3 +25,6 @@ vim.keymap.set('n', '<leader>qf', quickfix, opts)
 
 vim.keymap.set('n', '<leader>f',
 	":Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=> <cr>", opts)
+vim.keymap.set('n', '<leader>s', ":Telescope lsp_workspace_symbols<cr>", opts)
+vim.keymap.set('n', '<leader>g', ":Telescope live_grep<cr>", opts)
+vim.keymap.set('n', '<leader>t', ":Telescope lsp_document_symbols<cr>", opts)
