@@ -47,18 +47,9 @@ return {
 				desc = "Fuzzy Grep (cwd)"
 			},
 			-- search symbols
-			{ '<leader>t"', "<cmd>Telescope lsp_document_symbols<cr>",                desc = "Find Document Symbols" },
+			{ '<leader>t', "<cmd>Telescope lsp_document_symbols<cr>",                desc = "Find Document Symbols" },
 			{
 				"<leader>s",
-				function()
-					require("telescope.builtin").lsp_document_symbols({
-						symbols = require("lazyvim.config").get_kind_filter(),
-					})
-				end,
-				desc = "Goto Symbol",
-			},
-			{
-				"<leader>sS",
 				function()
 					require("telescope.builtin").lsp_dynamic_workspace_symbols({
 						symbols = require("lazyvim.config").get_kind_filter(),
