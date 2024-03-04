@@ -21,4 +21,4 @@ local function quickfix()
 		apply = true
 	})
 end
-vim.keymap.set('n', '<leader>qf', quickfix, opts)
+vim.keymap.set('n', 'qf', quickfix, opts)
