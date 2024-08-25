@@ -21,8 +21,9 @@ return {
 		keys = {
 			{ "<leader>:",       "<cmd>Telescope command_history<cr>",                                                       desc = "Command History" },
 			{ "<leader><space>", "<cmd>wa<cr>",                                                                              desc = "Save files" },
+			-- buffers
+			{ "<leader>b",       "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",                              desc = "Buffers" },
 			-- find files
-			{ "<leader>fb",      "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>",                              desc = "Buffers" },
 			--{ "<leader>fc",      Util.telescope.config_files(),                                                              desc = "Find Config File" },
 			{ "<leader>f",       "<cmd>Telescope git_files<cr>",                                                             desc = "Find Files (git-files)" },
 			{ "<leader>F",       "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=> <cr>", desc = "Find Files (root dir)" },
@@ -47,7 +48,7 @@ return {
 				desc = "Fuzzy Grep (cwd)"
 			},
 			-- search symbols
-			{ '<leader>t', "<cmd>Telescope lsp_document_symbols<cr>",                desc = "Find Document Symbols" },
+			{ '<leader>t',  "<cmd>Telescope lsp_document_symbols<cr>",                desc = "Find Document Symbols" },
 			{
 				"<leader>s",
 				function()

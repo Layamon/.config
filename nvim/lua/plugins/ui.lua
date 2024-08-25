@@ -1,38 +1,65 @@
 return {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		enabled = false,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("nvim-tree").setup {}
+		end,
+	},
+	{
+		"folke/noice.nvim",
 		opts = {
-			filesystem = {
-				filtered_items = {
-					visible = true,
-					show_hidden_count = true,
-					hide_dotfiles = false,
-					hide_gitignored = true,
-					hide_by_name = {
-						-- '.git',
-						-- '.DS_Store',
-						-- 'thumbs.db',
-					},
-					never_show = {},
+			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
 				},
-			}
+			},
+			routes = {
+				{
+					filter = {
+						event = "msg_show",
+						any = {
+							{ find = "%d+L, %d+B" },
+							{ find = "; after #%d+" },
+							{ find = "; before #%d+" },
+						},
+					},
+					view = "mini",
+				},
+			},
+			presets = {
+				bottom_search = false,
+				command_palette = false,
+				long_message_to_split = true,
+				inc_rename = true,
+			},
 		}
 	},
 	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("nightfox").setup({
-				options = {
-					styles = {
-						comments = "italic",
-						keywords = "bold",
-						functions = "italic",
-						--      types = "bold",
-					},
-				},
-				vim.cmd([[ colorscheme dayfox ]]),
-			})
-		end,
+		"rcarriga/nvim-notify",
+		opts = {
+			stages = "static",
+			timeout = 3000,
+			max_height = function()
+				return math.floor(vim.o.lines * 0.75)
+			end,
+			max_width = function()
+				return math.floor(vim.o.columns * 0.75)
+			end,
+			on_open = function(win)
+				vim.api.nvim_win_set_config(win, { zindex = 100 })
+			end,
+		}
 	},
 	{
 		"nvim-lualine/lualine.nvim",
@@ -127,5 +154,29 @@ return {
 				},
 			},
 		}
-	}
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		priority = 1000,
+		config = function()
+			require("nightfox").setup({
+				options = {
+					styles = {
+						comments = "italic",
+						keywords = "bold",
+						functions = "italic",
+						--types = "bold",
+					},
+				},
+			})
+		end,
+	},
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "dawnfox",
+		},
+	},
+
+
 }
