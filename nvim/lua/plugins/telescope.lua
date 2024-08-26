@@ -27,12 +27,10 @@ return {
 			--{ "<leader>fc",      Util.telescope.config_files(),                                                              desc = "Find Config File" },
 			{ "<leader>f",       "<cmd>Telescope git_files<cr>",                                                             desc = "Find Files (git-files)" },
 			{ "<leader>F",       "<cmd>Telescope find_files find_command=rg,--ignore,--hidden,--files prompt_prefix=> <cr>", desc = "Find Files (root dir)" },
-			{ "<leader>fc",      Util.telescope("files", { cwd = false }),                                                   desc = "Find Files (cwd)" },
 			{ "<leader>fr",      "<cmd>Telescope oldfiles<cr>",                                                              desc = "Recent" },
-			{ "<leader>fR",      Util.telescope("oldfiles", { cwd = vim.loop.cwd() }),                                       desc = "Recent (cwd)" },
 			-- grep text
 			-- not working when has too much files such as > 20000 files.
-			{ "<leader>/",       Util.telescope("live_grep"),                                                                desc = "Grep (root dir)" },
+			{ "<leader>/",      "<cmd>Telescope live_grep<cr>",                                                                desc = "Grep (root dir)" },
 			{ "<leader>g",       "<cmd>Telescope current_buffer_fuzzy_find<cr>",                                             desc = "Buffer" },
 			{
 				"<leader>G",
@@ -72,7 +70,7 @@ return {
 			{ "<leader>sm", "<cmd>Telescope marks<cr>",                               desc = "Jump to Mark" },
 			{ "<leader>so", "<cmd>Telescope vim_options<cr>",                         desc = "Options" },
 			{ "<leader>sR", "<cmd>Telescope resume<cr>",                              desc = "Resume" },
-			{ "<leader>uC", Util.telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
+			{ "<leader>uC", "<cmd>Telescope colorschema<cr>", desc = "Colorscheme with preview" },
 		}
 	},
 }

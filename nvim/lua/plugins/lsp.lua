@@ -10,6 +10,7 @@ return {
 			servers = {
 				-- Ensure mason installs the server
 				clangd = {
+					mason = false,
 					keys = {
 						{ "11", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
 					},

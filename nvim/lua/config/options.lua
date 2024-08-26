@@ -12,7 +12,6 @@ vim.o.history = 5000
 vim.o.tabstop = 4
 vim.o.expandtab = false
 vim.o.shiftwidth = vim.o.tabstop
---vim.o.colorcolumn = "120"
 vim.g.mapleader = " "
 vim.o.softtabstop = 4
 vim.o.mouse = "nv"
@@ -25,8 +24,11 @@ vim.o.cursorline = 0
 vim.diagnostic.config({ virtual_text = false })
 vim.o.list = 0
 
-vim.api.nvim_exec([[
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-]], false)
+vim.o.foldmethod = "manual"
+
+-- control cursor shape of vim
+--vim.api.nvim_exec2([[
+--let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+--let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+--let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+--]])
