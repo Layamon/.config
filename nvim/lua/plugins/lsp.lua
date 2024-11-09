@@ -32,6 +32,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		dependencies = {
 			"hrsh7th/cmp-emoji",
+			'L3MON4D3/LuaSnip',
 		},
 		---@param opts cmp.ConfigSchema
 		opts = function(_, opts)
