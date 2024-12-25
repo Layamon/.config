@@ -24,6 +24,7 @@ return {
 						"--fallback-style=llvm",
 					},
 				},
+				rust_analyzer = { enabled = true },
 			},
 		}
 

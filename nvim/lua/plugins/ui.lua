@@ -69,7 +69,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "solarized_light",
+					theme = "solarized_dark",
 					component_separators = "",
 					section_separators = { left = "", right = "" },
 				},
@@ -150,7 +150,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "dawnfox",
+			colorscheme = "nightfox",
 		},
 	},
 
