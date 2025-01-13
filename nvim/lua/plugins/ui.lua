@@ -62,25 +62,6 @@ return {
 		}
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		config = function()
-			require("lualine").setup({
-				options = {
-					theme = "solarized_dark",
-					component_separators = "",
-					section_separators = { left = "", right = "" },
-				},
-				inactive_sections = {
-					lualine_c = { "%f %y %m" },
-					lualine_x = {},
-				},
-			})
-		end,
-	},
-	{
 		"folke/noice.nvim",
 		opts = {
 			presets = {
@@ -148,11 +129,45 @@ return {
 		end,
 	},
 	{
+		'sainnhe/everforest',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.g.everforest_enable_italic = true
+			vim.g.everforest_background = 'hard'
+		end
+	},
+	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "nightfox",
+			colorscheme = "everforest",
 		},
 	},
 
-
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+			"SmiteshP/nvim-navic",
+		},
+		config = function()
+			require("lualine").setup({
+				options = {
+					theme = "everforest",
+					component_separators = "",
+					section_separators = { left = "", right = "" },
+				},
+				inactive_sections = {
+					lualine_c = { "%f %y %m" },
+					lualine_x = {},
+				},
+				sections = {
+					lualine_c = {
+						{ 'filename' },
+						{ 'navic',   color_correction = 'static' },
+					}
+				}
+			})
+		end,
+	},
 }

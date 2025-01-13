@@ -14,6 +14,10 @@ return {
 					keys = {
 						{ "11", "<cmd>ClangdSwitchSourceHeader<cr>", desc = "Switch Source/Header (C/C++)" },
 					},
+					on_attach = function(client, bufnr)
+						require("nvim-navic")
+							.attach(client, bufnr)
+					end,
 					cmd = {
 						"clangd",
 						"--background-index",
