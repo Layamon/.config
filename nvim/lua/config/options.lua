@@ -25,7 +25,7 @@ vim.diagnostic.config({ virtual_text = false })
 vim.o.list = false
 
 vim.o.foldmethod = "manual"
-vim.o.background = "dark"
+vim.o.background = "light"
 
 -- control cursor shape of vim
 --vim.api.nvim_exec2([[

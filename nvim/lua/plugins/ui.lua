@@ -134,13 +134,24 @@ return {
 		priority = 1000,
 		config = function()
 			vim.g.everforest_enable_italic = true
-			vim.g.everforest_background = 'hard'
+			vim.g.everforest_background = 'medium'
 		end
 	},
+    {
+      'sainnhe/gruvbox-material',
+      lazy = false,
+      priority = 1000,
+      config = function()
+        -- Optionally configure and load the colorscheme
+        -- directly inside the plugin declaration.
+        vim.g.gruvbox_material_enable_italic = true
+		vim.g.gruvbox_material_background= 'medium'
+      end
+    },
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "everforest",
+			colorscheme = "gruvbox-material",
 		},
 	},
 
@@ -153,7 +164,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "everforest",
+					theme = "gruvbox-material",
 					component_separators = "",
 					section_separators = { left = "", right = "" },
 				},
