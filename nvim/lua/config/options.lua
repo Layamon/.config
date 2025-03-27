@@ -24,9 +24,11 @@ vim.o.cursorline = false
 vim.diagnostic.config({ virtual_text = false })
 vim.o.list = false
 
-vim.o.foldmethod = "manual"
-vim.o.background = "light"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = true
 
+vim.o.background = "dark"
 -- control cursor shape of vim
 --vim.api.nvim_exec2([[
 --let &t_SI = "\<Esc>]50;CursorShape=1\x7"

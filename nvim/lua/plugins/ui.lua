@@ -128,6 +128,7 @@ return {
 			})
 		end,
 	},
+	{ "Mofiqul/dracula.nvim" },
 	{
 		'sainnhe/everforest',
 		lazy = false,
@@ -151,7 +152,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "gruvbox-material",
+			colorscheme = "dracula",
 		},
 	},
 
@@ -164,7 +165,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "gruvbox-material",
+					theme = "dracula",
 					component_separators = "",
 					section_separators = { left = "", right = "" },
 				},
