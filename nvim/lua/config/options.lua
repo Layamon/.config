@@ -28,7 +28,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
 
-vim.o.background = "dark"
+vim.o.background = "light"
 -- control cursor shape of vim
 --vim.api.nvim_exec2([[
 --let &t_SI = "\<Esc>]50;CursorShape=1\x7"

@@ -25,6 +25,7 @@ return {
 						"--header-insertion=never",
 						"--completion-style=detailed",
 						"--function-arg-placeholders",
+						"-j=2", "--malloc-trim",
 						"--fallback-style=llvm",
 					},
 				},

@@ -138,21 +138,36 @@ return {
 			vim.g.everforest_background = 'medium'
 		end
 	},
-    {
-      'sainnhe/gruvbox-material',
-      lazy = false,
-      priority = 1000,
-      config = function()
-        -- Optionally configure and load the colorscheme
-        -- directly inside the plugin declaration.
-        vim.g.gruvbox_material_enable_italic = true
-		vim.g.gruvbox_material_background= 'medium'
-      end
-    },
+	{
+		'sainnhe/gruvbox-material',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			-- Optionally configure and load the colorscheme
+			-- directly inside the plugin declaration.
+			vim.g.gruvbox_material_enable_italic = true
+			vim.g.gruvbox_material_background = 'medium'
+		end
+	},
+	{
+		'ribru17/bamboo.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require('bamboo').setup {
+				style = 'multiplex',
+				-- Lualine options --
+				lualine = {
+					transparent = false, -- lualine center bar transparency
+				},
+			}
+			require('bamboo').load()
+		end,
+	},
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "dracula",
+			colorscheme = "bamboo",
 		},
 	},
 
@@ -165,7 +180,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "dracula",
+					theme = "bamboo",
 					component_separators = "",
 					section_separators = { left = "", right = "" },
 				},
