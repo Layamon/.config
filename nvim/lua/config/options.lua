@@ -28,6 +28,8 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = true
 
+vim.g.lazyvim_picker = "fzf"
+
 vim.o.background = "light"
 -- control cursor shape of vim
 --vim.api.nvim_exec2([[

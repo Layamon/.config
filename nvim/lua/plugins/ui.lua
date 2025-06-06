@@ -113,43 +113,6 @@ return {
 		}
 	},
 	{
-		"EdenEast/nightfox.nvim",
-		priority = 1000,
-		config = function()
-			require("nightfox").setup({
-				options = {
-					styles = {
-						comments = "italic",
-						keywords = "bold",
-						functions = "italic",
-						types = "bold",
-					},
-				},
-			})
-		end,
-	},
-	{ "Mofiqul/dracula.nvim" },
-	{
-		'sainnhe/everforest',
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.g.everforest_enable_italic = true
-			vim.g.everforest_background = 'medium'
-		end
-	},
-	{
-		'sainnhe/gruvbox-material',
-		lazy = false,
-		priority = 1000,
-		config = function()
-			-- Optionally configure and load the colorscheme
-			-- directly inside the plugin declaration.
-			vim.g.gruvbox_material_enable_italic = true
-			vim.g.gruvbox_material_background = 'medium'
-		end
-	},
-	{
 		'ribru17/bamboo.nvim',
 		lazy = false,
 		priority = 1000,
@@ -164,13 +127,6 @@ return {
 			require('bamboo').load()
 		end,
 	},
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "bamboo",
-		},
-	},
-
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
@@ -196,5 +152,15 @@ return {
 				}
 			})
 		end,
+	},
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "bamboo",
+		},
+		keys = {
+			-- disable the keymap to grep files
+			{ "<Space><Space>", false },
+		}
 	},
 }

@@ -5,7 +5,6 @@
 local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 vim.keymap.set("x", "<leader>f", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
-vim.keymap.set("n", "<leader>p", "<cmd>wa<CR>", opts)
 vim.keymap.set("n", "ff", "<cmd>NvimTreeFindFile<CR>", opts)
 vim.keymap.set("n", "fm", "<cmd>lua vim.lsp.buf.format{async=true}<CR>", opts)
 vim.keymap.set("n", "<leader>n", function()
