@@ -114,7 +114,7 @@ return {
 	},
 	{
 		'ribru17/bamboo.nvim',
-		lazy = false,
+		lazy = true,
 		priority = 1000,
 		config = function()
 			require('bamboo').setup {
@@ -128,6 +128,11 @@ return {
 		end,
 	},
 	{
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000
+	},
+	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
@@ -136,7 +141,7 @@ return {
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "bamboo",
+					theme = "catppuccin",
 					component_separators = "",
 					section_separators = { left = "", right = "" },
 				},
@@ -156,7 +161,7 @@ return {
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "bamboo",
+			colorscheme = "catppuccin",
 		},
 		keys = {
 			-- disable the keymap to grep files
