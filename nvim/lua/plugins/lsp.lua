@@ -19,13 +19,14 @@ return {
 							.attach(client, bufnr)
 					end,
 					cmd = {
-						"clangd",
+						"/opt/homebrew/opt/llvm@19/bin/clangd",
 						"--background-index",
 						"--clang-tidy",
 						"--header-insertion=never",
 						"--completion-style=detailed",
 						"--function-arg-placeholders",
-						"-j=2", "--malloc-trim",
+						"-j=2",
+-- disable in mac, since mac allocator not support						"--malloc-trim",
 						"--fallback-style=llvm",
 					},
 				},
